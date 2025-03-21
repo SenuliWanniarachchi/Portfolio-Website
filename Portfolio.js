@@ -31,10 +31,12 @@ window.addEventListener('scroll', function() {
 
 // Enhanced typing effect
 const texts = [
-  "A Full Stack Developer",
-  "A Programmer",
   "A Software Engineering Undergraduate",
-  "A Developer"
+  "A Web Developer",
+  "A FullStack Developer",
+  "A Programmer",
+  
+  
 ];
 
 let textIndex = 0;
