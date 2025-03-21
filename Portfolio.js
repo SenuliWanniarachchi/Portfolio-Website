@@ -41,3 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
   type();
 });
 
+const form = document.getElementById('contact-form');
+const submitButton = form.querySelector('.submit-btn');
+
+form.addEventListener('submit', async (e) => {
+    // Change button text while submitting
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    try {
+        // Form will be handled by Formspree
+        await new Promise(resolve => setTimeout(resolve, 1000));
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Sorry, there was an error sending your message. Please try again.');
+    } finally {
+        submitButton.textContent = 'Send Message';
+        submitButton.disabled = false;
+    }
+});
