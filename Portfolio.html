@@ -360,40 +360,96 @@
 
 <section id="contact" class="contact">
     <div class="container">
-        <h2>Contact Me</h2>
-        <div class="contact-container">
-            <div class="contact-image">
-                <img src="/img/senuli3.jpg" width="500" height="500" alt="Contact Image">
+      <h2>Contact Me</h2>
+      <p class="section-intro">I'd love to hear from you! Feel free to reach out with questions, opportunities, or just to say hello.</p>
+      
+      <div class="contact-container">
+        <div class="contact-card">
+          <div class="contact-image">
+            <img src="/img/senuli3.jpg" alt="Contact Image">
+            <div class="image-overlay">
+              <div class="contact-info">
+                <div class="info-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>email@example.com</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-phone"></i>
+                  <span>+1 (123) 456-7890</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>City, Country</span>
+                </div>
+              </div>
             </div>
-            <form id="contact-form" action="https://formspree.io/f/mldgwgjo" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="5" maxlength="1000" required></textarea>
-                </div>
-
-                <!-- Honeypot field to prevent spam -->
-                <input type="text" name="_gotcha" style="display:none">
-                <!-- Redirect after submission -->
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+          </div>
         </div>
+        
+        <div class="form-card">
+          <form id="contact-form" action="https://formspree.io/f/mldgwgjo" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+              <span class="focus-border"></span>
+            </div>
             
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+              <span class="focus-border"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Your Message" rows="5" maxlength="1000" required></textarea>
+              <span class="focus-border"></span>
+            </div>
+  
+            <!-- Honeypot field to prevent spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            <!-- Redirect after submission -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+  
+            <button type="submit" class="submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            
+            <div class="form-status">
+              <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <p>Message sent successfully!</p>
+              </div>
+              <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Oops! Something went wrong.</p>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-github"></i>
+          <span class="tooltip">GitHub</span>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-instagram"></i>
+          <span class="tooltip">Instagram</span>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-facebook"></i>
+          <span class="tooltip">Facebook</span>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin"></i>
+          <span class="tooltip">LinkedIn</span>
+        </a>
+      </div>
     </div>
-</section>
+  </section>
 
 <footer>
     <p>&copy; 2024 Senuli Wanniarachchi. All rights reserved.</p>
