@@ -1,5 +1,36 @@
- // Typing effect
- const texts = [
+// Navigation scroll effect
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('.nav-bar');
+  const scrollPosition = window.scrollY;
+  
+  if (scrollPosition > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  
+  // Active navigation based on scroll position
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// Enhanced typing effect
+const texts = [
   "A Full Stack Developer",
   "A Programmer",
   "A Software Engineering Undergraduate",
@@ -18,27 +49,41 @@ function type() {
   const typingElement = document.getElementById('typing-text');
 
   if (isDeleting) {
-      typingElement.textContent = currentText.substring(0, charIndex - 1);
-      charIndex--;
+    typingElement.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
   } else {
-      typingElement.textContent = currentText.substring(0, charIndex + 1);
-      charIndex++;
+    typingElement.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
   }
 
+  // Add blinking cursor effect
+  typingElement.style.borderRight = 'transparent';
+  
+  setTimeout(() => {
+    typingElement.style.borderRight = '0.1em solid var(--accent-color)';
+  }, 200);
+
   if (!isDeleting && charIndex === currentText.length) {
-      isDeleting = true;
-      setTimeout(type, newTextDelay);
+    isDeleting = true;
+    setTimeout(type, newTextDelay);
   } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
-      setTimeout(type, typingDelay);
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(type, typingDelay);
   } else {
-      setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+    setTimeout(type, isDeleting ? erasingDelay : typingDelay);
   }
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   type();
+  initializeProgressBars();
+  
+  // Add active class to current nav link
+  const currentSection = window.location.hash || '#home';
+  document.querySelector(`.nav-links a[href="${currentSection}"]`)?.classList.add('active');
 });
 
 document.addEventListener('DOMContentLoaded', function() {
