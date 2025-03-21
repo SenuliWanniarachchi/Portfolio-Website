@@ -139,6 +139,241 @@ html {
   transform: translateY(-3px);
 }
 
+/* Education Section - Alternative Design */
+.education {
+  padding: 100px 0;
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  position: relative;
+  overflow: hidden;
+}
+
+.education::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(0, 255, 187, 0.05) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.education h2 {
+  position: relative;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  z-index: 1;
+}
+
+.education h2::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.education-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.edu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 255, 187, 0.2);
+}
+
+.edu-card:hover::before {
+  transform: scaleX(1);
+}
+
+.edu-card-header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.edu-card-header i {
+  font-size: 2rem;
+  margin-right: 15px;
+  color: var(--accent-color);
+}
+
+.edu-card-header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.edu-card-body {
+  padding: 20px;
+}
+
+/* University Card Styles */
+.university-card .edu-program {
+  margin-bottom: 20px;
+}
+
+.program-label {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.program-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.edu-status {
+  margin-top: 20px;
+}
+
+.status-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.status-progress {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(to right, var(--accent-color), #00ffd9);
+  border-radius: 4px;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.7;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.status-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* School Card Styles */
+.school-card {
+  grid-column: 1 / -1; /* Make it span full width */
+}
+
+.exam-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.exam-item {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.exam-item:hover {
+  transform: scale(1.03);
+}
+
+.exam-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.exam-icon i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.exam-details h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.exam-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.highlight {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .education-cards {
+      grid-template-columns: 1fr;
+  }
+  
+  .school-card {
+      grid-column: auto;
+  }
+  
+  .exam-results {
+      grid-template-columns: 1fr;
+  }
+}
+
 /* Skills Section */
 .skills {
   padding: 100px 0;
